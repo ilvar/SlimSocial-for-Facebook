@@ -59,6 +59,12 @@
             android:key="pref_theme"
             android:summary="@string/summary_theme"
             android:title="@string/title_theme" />
+
+        <EditTextPreference
+            android:key="pref_filter"
+            android:textColor="@color/darkBlueSlimFacebookTheme"
+            android:summary="Remove posts with these words from feed (comma separated)"
+            android:title="Filter words" />
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/prefCat_app_settings_title">

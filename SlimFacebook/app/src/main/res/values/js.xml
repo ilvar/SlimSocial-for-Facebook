@@ -13,14 +13,27 @@
 		}
 		addStyle(\'$css\');
 	</string>
-<string name="fixMessages" translatable="false">
+	<string name="fixMessages" translatable="false">
 		javascript:function fixMessages() {
 		var a=(document.querySelectorAll(\'#messages_jewel ._19no.touchable\'))[0];
         a.href=\'https://slimsocial.leo\';
         a.setAttribute(\'data-autoid\',\'\');
 		}
 		fixMessages();
-</string>
+	</string>
+	<string name="cleanupFeed" translatable="false">
+		javascript:function cleanupFeed() {
+		var posts=(document.querySelectorAll(\'.storyStream article\'));
+        posts.forEach(function(p) {
+			%%%%.forEach(function(w) {
+				if (p.parentNode &amp;&amp; p.textContent.indexOf(w) > 0) {
+					p.parentNode.removeChild(p);
+				}
+			});
+		});
+		}
+		setInterval(cleanupFeed, 5000);
+	</string>
 
 	<string name="hideHeaderFooterMessages" translatable="false">
 		javascript: function hideHeaderFooterMessages(){

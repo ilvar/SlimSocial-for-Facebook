@@ -396,6 +396,18 @@ public class MainActivity extends Activity implements MyAdvancedWebView.Listener
             webViewFacebook.loadUrl(getString(R.string.fixMessages));
         }
 
+        String feedFilter = savedPreferences.getString("pref_filter", "");
+        if (feedFilter.length() > 0) {
+            String[] bits = feedFilter.split(",");
+            StringBuilder feedFilterString = new StringBuilder();
+            for (String bit : bits) {
+                feedFilterString.append(",\'").append(bit).append("\'");
+            }
+            feedFilterString = new StringBuilder("[" + feedFilterString.substring(1) + "]");
+            String jsFilter = getString(R.string.cleanupFeed).replace("%%%%", feedFilterString.toString());
+            webViewFacebook.loadUrl(jsFilter);
+        }
+
         swipeRefreshLayout.setRefreshing(false);
 
     }
